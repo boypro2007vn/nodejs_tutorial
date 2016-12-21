@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(()=>{
+        $('#btn-get-info').click(function(){
+          alert('V8.1')
+        });
+
+        $('#btn-show').click(function(){
+          var msg = $('#txt-msg').val();
+          $.get('/xinchao/'+msg,(data)=>{
+            alert(data);
+          });
+          $('#txt-msg').val('');
+        });
+
+        $('.item').click(function(e){
+          if($(this).hasClass('active')){
+            $('.item').removeClass('active');
+          }else{
+            $(this).addClass('active');
+          }
+          alert($(this).html())
+        })
+
+        $('#h1-num').click(function(){
+          var num =parseInt($(this).html());
+          $(this).html(num+1);
+          if($(this).hasClass('active')){
+            $(this).removeClass('active');
+          }else{
+            $(this).addClass('active');
+          }
+        })
+
+        $('#a-about').click(function(){
+          $.get('/about',(data)=>{
+            alert(data);
+          })
+        })
+
+        $('#btn-post-info').click(function(){
+          var ten = $('#ten').val();
+          var tuoi = $('#tuoi').val();
+          $.post('/hello',{ten,tuoi},data=>{
+            alert(data);
+          })
+        })
+      })
+      function getInfo(){
+        alert('V8')
+      }
+    </script>
+
+    <style media="screen">
+      .active{
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>Khoa Pham</h1>
+    <a href="#" id="a-about">About</a>
+    <p></p>
+    <input type="text" name="" value="" id="txt-msg">
+    <button type="button" name="button" id="btn-show">Show</button>
+    <p></p>
+    <button type="button" name="button" id="btn-get-info">Get Info JQuery</button>
+    <button type="button" name="button" onclick="getInfo()">Get Info JS</button>
+    <p></p>
+    Ten: <input type="text" id="ten" value="">
+    Tuoi:  <input type="text" id="tuoi" value="">
+    <button type="button" name="button" id="btn-post-info">POST INFO</button>
+    <h1 id="h1-num">0</h1>
+    <ul>
+      <li class="item">iOS</li>
+      <li class="item">Android</li>
+      <li class="item">NodeJS</li>
+    </ul>
+  </body>
+</html>

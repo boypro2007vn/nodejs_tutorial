@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="/socket.io/socket.io.js" charset="utf-8"></script>
+  <script src="jquery-3.1.1.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var socket = io();//5
+    $('#btn-send').click(function(){
+      var msg = $('#txt_message').val();
+      socket.emit('CLIENT_SEND_MESSAGE',msg);
+      $('#txt_message').val('');
+    })
+    socket.on('SERVER_SEND_MESSAGE',data=>alert(data));
+  });
+  </script>
+  <body>
+    <h1>Chat RealTime</h1>
+    <input type="text" value="" id="txt_message">
+    <button type="button" id="btn-send">Send</button>
+  </body>
+</html>

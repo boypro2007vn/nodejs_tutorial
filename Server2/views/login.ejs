@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <link rel="stylesheet" href="css/style.css">
+  <body>
+
+    <form class="" action="/xulydangnhap" method="post">
+      <img src="image/dark-silhouettes-limbo-monochrome-butterflies-wallpaper-1.jpg" alt="">
+      <p>UserName: <input type="text" name="user" value=""></p>
+      <p>PassWord: <input type="password" name="pass" value=""></p>
+      <p><input type="submit" name="" value="Ok"></p>
+      <p>Name: <%=user%></p>
+      <p>Pass: <%=pass%></p>
+      <p>Name1: <input type="text" name="name1" value=""></p>
+      <p>Name2: <input type="text" name="name2" value=""></p>
+      <p>Name3 <input type="text" name="name3" value=""></p>
+      <p>Array:</p>
+      <% name.forEach((x)=>{%>
+        <p class="div-person"><%=x%></p>
+      <%})%>
+    </form>
+  </body>
+</html>

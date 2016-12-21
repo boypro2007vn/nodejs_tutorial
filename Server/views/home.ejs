@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<% var n=800; %>
+<% var m="<font color=green>GREEN</font>"; %>
+<html>
+  <head></head>
+  <body>
+    <p>Getting Hello <%= n %></p>
+    <p>Getting Hello <%- m %></p>
+    <% if(n>900){%>
+      <p>Dong y</p>
+    <%}else{%>
+      <p>Khong dong y</p>
+    <%}%>
+    <% for(var i=1;i<5;i++){%>
+      <h3>Co ai khong <%=i%></h3>
+    <%}%>
+  </body>
+</html>

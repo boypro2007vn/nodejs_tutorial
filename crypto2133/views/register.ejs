@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#cuser').blur(function(){
+        var user = $('#cuser').val();
+        $.get('/checkuser/'+user,(data)=>{
+          if(data=='User'){
+            $('#log').html('Ban co the su dung tai khoan nay')
+          }
+          if(data=='Pass'){
+            $('#log').html('Ten tai khoan da ton tai')
+          }
+        })
+      })
+    })
+  </script>
+  <body>
+    <form class="" action="/xulydangky" method="post" enctype="multipart/form-data">
+      <p>User: <input type="text" name="user" value="" id="cuser">&emsp;<span id='log' style="color:red"></span></p>
+      <p>Pass: <input type="password" name="pass" value=""></p>
+      <p>Image: <input type="file" name="image" value=""></p>
+      <p>Phone: <input type="text" name="phone" value=""></p>
+      <p><input type="submit" name="" value="OK"></p>
+      <p>Have a account? <a href="/login">Login</a></p>
+    </form>
+  </body>
+</html>

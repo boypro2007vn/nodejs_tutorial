@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/add">Add Product</a>
+    <table>
+      <tr>
+        <td>STT</td>
+        <td>Title</td>
+        <td>Desc</td>
+        <td>Image</td>
+        <td>Link</td>
+        <td></td>
+      </tr>
+      <% proList.forEach((pro,index)=>{%>
+        <tr>
+          <td><%=pro.id%></td>
+          <td><%=pro.title%></td>
+          <td><%=pro.des%></td>
+          <td><img src="./images/<%=pro.image%>" alt="" height="100" width="100"></td>
+          <td><%=pro.link%></td>
+          <td><a href="/update/<%=pro.id%>">Update</a> | <a href="/delete/<%=pro.id%>">Delete</a></td>
+        </tr>
+      <%})%>
+    </table>
+  </body>
+</html>
